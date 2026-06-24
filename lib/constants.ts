@@ -100,5 +100,5 @@ export const areasByGovernorate: Record<string, string[]> = {
 };
 
 const currentYear = new Date().getFullYear();
-// Generates [currentYear ... currentYear-19] for the year dropdown.
+// Generates an array of 20 years from currentYear down to currentYear-19.
 export const years = Array.from({ length: 20 }, (_, index) => String(currentYear - index));

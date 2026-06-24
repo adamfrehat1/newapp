@@ -5,15 +5,9 @@ interface ToggleChipGroupProps {
   options: string[];
   values: string[];
   onToggle: (value: string) => void;
-  singleSelect?: boolean;
 }
 
-export function ToggleChipGroup({
-  options,
-  values,
-  onToggle,
-  singleSelect,
-}: ToggleChipGroupProps) {
+export function ToggleChipGroup({ options, values, onToggle }: ToggleChipGroupProps) {
   return (
     <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
       {options.map((option) => {
@@ -23,7 +17,7 @@ export function ToggleChipGroup({
             type="button"
             key={option}
             variant={selected ? "primary" : "outline"}
-            className={cn("h-auto py-2.5", singleSelect && "col-span-1")}
+            className={cn("h-auto py-2.5")}
             aria-pressed={selected}
             onClick={() => onToggle(option)}
           >
