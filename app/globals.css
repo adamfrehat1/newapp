@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #102640;
+  --card: #ffffff;
+  --muted: #e8f4ff;
+  --border: #d5e6f8;
+  --primary: #1f6feb;
+  --primary-foreground: #ffffff;
+  --secondary: #1f9d55;
+  --secondary-foreground: #ffffff;
+}
+
+:root[data-theme="classic-blue"] {
+  --background: #f5f9ff;
+  --foreground: #0c315f;
+  --card: #ffffff;
+  --muted: #e3edfb;
+  --border: #bfd6f2;
+  --primary: #0057cc;
+  --primary-foreground: #ffffff;
+  --secondary: #0b84f3;
+  --secondary-foreground: #ffffff;
+}
+
+:root[data-theme="orange"] {
+  --background: #fff7ef;
+  --foreground: #4a2a06;
+  --card: #ffffff;
+  --muted: #ffe7d1;
+  --border: #ffd2ad;
+  --primary: #ea7a1f;
+  --primary-foreground: #ffffff;
+  --secondary: #f0a229;
+  --secondary-foreground: #ffffff;
+}
+
+:root[data-theme="dark"] {
+  --background: #090d14;
+  --foreground: #f1f5f9;
+  --card: #111827;
+  --muted: #1f2937;
+  --border: #253243;
+  --primary: #4f9cff;
+  --primary-foreground: #07111f;
+  --secondary: #2aaf84;
+  --secondary-foreground: #04110e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Tahoma", "Arial", sans-serif;
+}
+
+* {
+  border-color: var(--border);
+}
