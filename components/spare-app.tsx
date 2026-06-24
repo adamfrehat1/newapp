@@ -18,7 +18,7 @@ export function SpareApp() {
   return (
     <>
       <ThemeToggle />
-      <main className="mx-auto w-full max-w-xl flex-1 px-4 pb-28 pt-16">
+      <main id="main-content" className="mx-auto w-full max-w-xl flex-1 px-4 pb-28 pt-16">
         <Header />
         <Banner />
         {view === "home" && <HomeView />}

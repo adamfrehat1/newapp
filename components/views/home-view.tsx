@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { RefObject, useEffect, useMemo, useRef, useState } from "react";
 
 import { ShopCard } from "@/components/shop-card";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,18 @@ import { filterShops } from "@/lib/matching";
 import { FuelType, ProblemType } from "@/types/spare";
 
 const problemOptions: ProblemType[] = ["ميكانيك", "كهرباء", "بودي", "دهان", UNKNOWN_PROBLEM_TEXT];
+
+function scrollToSection(sectionRef: RefObject<HTMLDivElement | null>) {
+  if (!sectionRef.current) {
+    return;
+  }
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  sectionRef.current.scrollIntoView({
+    behavior: reduceMotion ? "auto" : "smooth",
+    block: "start",
+  });
+}
 
 export function HomeView() {
   const [fuel, setFuel] = useState<FuelType | "">("");
@@ -43,13 +55,13 @@ export function HomeView() {
 
   useEffect(() => {
     if (brand && model && year) {
-      stepThreeRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      scrollToSection(stepThreeRef);
     }
   }, [brand, model, year]);
 
   useEffect(() => {
     if (problem) {
-      searchRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      scrollToSection(searchRef);
     }
   }, [problem]);
 
@@ -81,7 +93,7 @@ export function HomeView() {
                     setYear("");
                     setProblem("");
                     setShowFeatured(false);
-                    stepTwoRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    scrollToSection(stepTwoRef);
                   }}
                 >
                   {option}
