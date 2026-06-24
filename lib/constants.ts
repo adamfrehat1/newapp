@@ -99,6 +99,6 @@ export const areasByGovernorate: Record<string, string[]> = {
   إربد: ["الرمثا", "الحي الشرقي", "وسط المدينة"],
 };
 
-export const years = Array.from({ length: 20 }, (_, index) =>
-  String(new Date().getFullYear() - index),
-);
+const currentYear = new Date().getFullYear();
+
+export const years = Array.from({ length: 20 }, (_, index) => String(currentYear - index));
